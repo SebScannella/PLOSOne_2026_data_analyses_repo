@@ -1,0 +1,5 @@
+Model,N_obs,Durbin_Watson,DW_interpretation,Breusch_Pagan_p,BP_interpretation,Shapiro_Wilk_p,SW_interpretation,Levene_Group_p,Levene_interpretation,Brown_Forsythe_Group_p,Brown_Forsythe_interpretation,Residual_Variance_Ratio_MaxMin,Group_Residual_Variance_Details
+H2a Base: SF_zscore ~ Session + Group + Session:Group,89,2.1325928534306193,OK,0.22421184370373376,OK,0.6247548006031547,OK,,Not tested,,Not tested,,
+H2b Base: MATB_z_mean ~ Session + Group + Session:Group,90,2.197235029974635,OK,0.014669986777856617,Potential issue,0.004096063780127486,Potential issue,0.4686272917441112,OK,0.46892297727084026,OK,1.6905157036490874,Sham:var=0.1179; tRNS:var=0.0698
+H2a Covariate: SF_zscore ~ Session + Group + Session:Group + VGexp,86,2.052822795435584,OK,0.22535999521408823,OK,0.6793073493549856,OK,,Not tested,,Not tested,,
+H2b Covariate: MATB_z_mean ~ Session + Group + Session:Group + VGexp,86,2.151203496584336,OK,0.0036689240916395263,Potential issue,0.01695762467345843,Potential issue,0.3345381013332303,OK,0.34519681301131777,OK,1.6482075507460432,Sham:var=0.1210; tRNS:var=0.0734

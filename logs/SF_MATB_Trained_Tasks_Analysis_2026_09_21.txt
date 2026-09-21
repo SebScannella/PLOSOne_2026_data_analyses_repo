@@ -1,0 +1,359 @@
+================================================================================
+STATISTICAL ANALYSIS - TRAINED TASKS (SF & MATB)
+================================================================================
+
+Log file: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\SF_MATB_Trained_Tasks_Analysis_2026_09_21.txt
+Analysis date: 2026-09-21 16:24:38
+================================================================================
+
+Loading data files...
+  df_Best_SF_MATB_Mean_Zscores: (391, 33)
+  df_demographics_EFs: (30, 36)
+
+Recoding groups (A -> tRNS, B -> Sham)...
+
+Sessions included: ['E1', 'E2', 'E3', 'T01', 'T02', 'T03', 'T04', 'T05', 'T06', 'T07', 'T08', 'T09', 'T10']
+Total data points: 391
+Unique participants: 31
+
+================================================================================
+DEMOGRAPHICS
+================================================================================
+  Group   N  Men  Women  Right_Handed  Left_Handed   Mean_Age    SD_Age  Mean_Education_Level  Mean_Flight_Hours  Mean_VGexp
+0  Sham  15   13      2            11            4  22.866667  2.614975             16.000000               59.0    4.500000
+1  tRNS  15   13      2            12            3  21.600000  1.502379             16.066667               59.8    4.392857
+
+================================================================================
+HYPOTHESIS 1: LEARNING RATE
+================================================================================
+H1a: tRNS group will have better learning rate in Space Fortress
+H1b: tRNS group will have better learning rate in MATB
+
+--------------------------------------------------------------------------------
+H1a: SF Learning Rate Comparison
+--------------------------------------------------------------------------------
+tRNS: n=15, mean=0.7129, SD=0.2488
+Sham: n=15, mean=0.7570, SD=0.2297
+
+Independent t-test:
+  t-statistic: -0.5046
+  p-value: 0.6178
+  Significant: NO
+
+--------------------------------------------------------------------------------
+H1b: MATB Learning Rate Comparison
+--------------------------------------------------------------------------------
+tRNS: n=15, mean=0.3634, SD=0.1737
+Sham: n=15, mean=0.3032, SD=0.1312
+
+Independent t-test:
+  t-statistic: 1.0716
+  p-value: 0.2931
+  Significant: NO
+
+--------------------------------------------------------------------------------
+H1a/H1b: Learning Rate with VGexp Covariate
+--------------------------------------------------------------------------------
+SF learning rate observations with VGexp: 29
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        LearningRate_SF   R-squared:                       0.143
+Model:                            OLS   Adj. R-squared:                  0.077
+Method:                 Least Squares   F-statistic:                     2.176
+Date:                Mon, 21 Sep 2026   Prob (F-statistic):              0.134
+Time:                        16:24:38   Log-Likelihood:                 3.2958
+No. Observations:                  29   AIC:                           -0.5916
+Df Residuals:                      26   BIC:                             3.510
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+====================================================================================
+                       coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------
+Intercept            0.5411      0.125      4.337      0.000       0.285       0.798
+C(Group)[T.tRNS]    -0.0548      0.085     -0.646      0.524      -0.229       0.120
+VGexp                0.0480      0.024      1.963      0.060      -0.002       0.098
+==============================================================================
+Omnibus:                        0.056   Durbin-Watson:                   2.342
+Prob(Omnibus):                  0.973   Jarque-Bera (JB):                0.053
+Skew:                           0.025   Prob(JB):                        0.974
+Kurtosis:                       2.796   Cond. No.                         15.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Group effect (p): 0.5238
+VGexp effect (p): 0.0605
+MATB learning rate observations with VGexp: 29
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:      LearningRate_MATB   R-squared:                       0.061
+Model:                            OLS   Adj. R-squared:                 -0.012
+Method:                 Least Squares   F-statistic:                    0.8386
+Date:                Mon, 21 Sep 2026   Prob (F-statistic):              0.444
+Time:                        16:24:38   Log-Likelihood:                 14.578
+No. Observations:                  29   AIC:                            -23.16
+Df Residuals:                      26   BIC:                            -19.05
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+====================================================================================
+                       coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------
+Intercept            0.3061      0.085      3.620      0.001       0.132       0.480
+C(Group)[T.tRNS]     0.0743      0.057      1.293      0.207      -0.044       0.192
+VGexp               -0.0006      0.017     -0.038      0.970      -0.035       0.033
+==============================================================================
+Omnibus:                        1.851   Durbin-Watson:                   1.918
+Prob(Omnibus):                  0.396   Jarque-Bera (JB):                1.101
+Skew:                           0.076   Prob(JB):                        0.577
+Kurtosis:                       2.058   Cond. No.                         15.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Group effect (p): 0.2075
+VGexp effect (p): 0.9697
+
+Computing learning rates for training sessions (T01-T10)...
+
+================================================================================
+HYPOTHESIS 2: PERFORMANCE COMPARISON (TRAINED TASKS)
+================================================================================
+H2a: tRNS better than Sham in Space Fortress after training
+H2b: tRNS better than Sham in MATB after training
+
+--------------------------------------------------------------------------------
+H2a: Mixed Model for SF Performance
+--------------------------------------------------------------------------------
+Model: SF_zscore ~ Session + Group + Session:Group
+Random effects: Participant
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                 MixedLM      Dependent Variable:      SF_zscore
+No. Observations:      89           Method:                  REML     
+No. Groups:            30           Scale:                   0.1589   
+Min. group size:       2            Log-Likelihood:          -82.6212 
+Max. group size:       3            Converged:               Yes      
+Mean group size:       3.0                                            
+----------------------------------------------------------------------
+                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   -0.902    0.215 -4.195 0.000 -1.323 -0.480
+Session[T.E2]                2.020    0.149 13.537 0.000  1.728  2.312
+Session[T.E3]                2.022    0.149 13.551 0.000  1.730  2.314
+Group[T.tRNS]               -0.063    0.302 -0.209 0.834 -0.656  0.529
+Session[T.E2]:Group[T.tRNS] -0.105    0.208 -0.502 0.616 -0.513  0.304
+Session[T.E3]:Group[T.tRNS] -0.273    0.208 -1.312 0.190 -0.682  0.135
+Group Var                    0.518    0.470                           
+======================================================================
+
+
+Assumption checks - H2a Base: SF_zscore ~ Session + Group + Session:Group
+  Durbin-Watson: 2.133 (OK)
+  Breusch-Pagan p-value: 0.2242 (OK)
+  Shapiro-Wilk p-value: 0.6248 (OK)
+
+Sandwich-robust marginal confirmation (GEE) - H2a Base: SF_zscore ~ Session + Group + Session:Group
+  Group p-value: MixedLM=0.8342 | Sandwich=0.6990
+  Min Session×Group p-value: MixedLM=0.1895 | Sandwich=0.2425
+
+--------------------------------------------------------------------------------
+SF Performance: Group Comparisons within Each Session
+--------------------------------------------------------------------------------
+E1: tRNS (n=16, m=-0.965) vs Sham (n=14, m=-0.926), t=nan, p=nan
+E2: tRNS (n=15, m=0.950) vs Sham (n=15, m=1.118), t=-0.475, p=0.639
+E3: tRNS (n=15, m=0.784) vs Sham (n=15, m=1.120), t=-0.992, p=0.330
+
+--------------------------------------------------------------------------------
+H2b: Mixed Model for MATB Performance
+--------------------------------------------------------------------------------
+Model: MATB_z_mean ~ Session + Group + Session:Group
+Random effects: Participant
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                 MixedLM     Dependent Variable:     MATB_z_mean
+No. Observations:      90          Method:                 REML       
+No. Groups:            31          Scale:                  0.1376     
+Min. group size:       1           Log-Likelihood:         -70.7192   
+Max. group size:       3           Converged:              Yes        
+Mean group size:       2.9                                            
+----------------------------------------------------------------------
+                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   -0.900    0.165 -5.466 0.000 -1.223 -0.577
+Session[T.E2]                1.531    0.139 11.034 0.000  1.259  1.803
+Session[T.E3]                1.572    0.139 11.326 0.000  1.300  1.844
+Group[T.tRNS]                0.196    0.227  0.862 0.389 -0.250  0.642
+Session[T.E2]:Group[T.tRNS] -0.030    0.193 -0.157 0.875 -0.410  0.349
+Session[T.E3]:Group[T.tRNS] -0.305    0.193 -1.577 0.115 -0.684  0.074
+Group Var                    0.255    0.268                           
+======================================================================
+
+
+Assumption checks - H2b Base: MATB_z_mean ~ Session + Group + Session:Group
+  Durbin-Watson: 2.197 (OK)
+  Breusch-Pagan p-value: 0.0147 (Potential issue)
+  Shapiro-Wilk p-value: 0.0041 (Potential issue)
+  Levene (group residual variance) p-value: 0.4686 (OK)
+  Brown-Forsythe (group residual variance) p-value: 0.4689 (OK)
+  Residual variance ratio max/min: 1.691
+  Group residual variances: Sham:var=0.1179; tRNS:var=0.0698
+
+Sandwich-robust marginal confirmation (GEE) - H2b Base: MATB_z_mean ~ Session + Group + Session:Group
+  Group p-value: MixedLM=0.3886 | Sandwich=0.4577
+  Min Session×Group p-value: MixedLM=0.1148 | Sandwich=0.1782
+
+--------------------------------------------------------------------------------
+MATB Performance: Group Comparisons within Each Session
+--------------------------------------------------------------------------------
+E1: tRNS (n=16, m=-0.704) vs Sham (n=14, m=-0.912), t=0.779, p=0.443
+E2: tRNS (n=15, m=0.761) vs Sham (n=15, m=0.631), t=0.653, p=0.519
+E3: tRNS (n=15, m=0.526) vs Sham (n=15, m=0.672), t=-0.674, p=0.506
+
+Creating vertically stacked learning rates plot (MATB + SF)...
+  Combined stacked learning rates plot saved
+Creating vertically stacked performances plot (Mean + Points + 95% CI)...
+  Combined stacked performances Mean+Points+95%CI plot saved
+
+--------------------------------------------------------------------------------
+EXPLORATORY: Gaming & Flight Experience Correlations (Baseline E1)
+--------------------------------------------------------------------------------
+Participants with baseline performance and experience data: 30
+
+Gaming experience (VGexp) correlations:
+Gaming exp vs SF performance (baseline): r=0.4815, p=0.0082, n=29
+Gaming exp vs MATB performance (baseline): r=0.4287, p=0.0228, n=28
+Gaming exp vs SUB_Flight SF (baseline): r=0.2530, p=0.1854, n=29
+
+Flight hours (HeuresVol) correlations:
+Flight hours vs SF performance (baseline): r=0.1114, p=0.5580, n=30
+Flight hours vs MATB performance (baseline): r=0.0549, p=0.7773, n=29
+Flight hours vs SUB_Flight SF: r=0.2747, p=0.1418, n=30
+
+--------------------------------------------------------------------------------
+EXPLORATORY: Gaming & Flight Experience Correlations (Retention E2-E3)
+--------------------------------------------------------------------------------
+Participants with retention performance and experience data: 30
+
+Gaming experience (VGexp) correlations:
+Gaming exp vs SF performance: r=0.5416, p=0.0024, n=29
+Gaming exp vs MATB performance: r=0.4011, p=0.0310, n=29
+Gaming exp vs Flight sim performance: r=0.1527, p=0.4290, n=29
+
+Flight hours (HeuresVol) correlations:
+Flight hours vs SF performance: r=-0.0847, p=0.6564, n=30
+Flight hours vs MATB performance: r=-0.0360, p=0.8502, n=30
+Flight hours vs Flight simulator experience: r=0.2747, p=0.1418, n=30
+
+--------------------------------------------------------------------------------
+H2a COVARIATE ANALYSIS: SF Performance with Gaming Experience
+--------------------------------------------------------------------------------
+Model: SF_zscore ~ Session + Group + Session:Group + VGexp
+Random effects: Participant
+Valid observations with covariates: 86
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                 MixedLM      Dependent Variable:      SF_zscore
+No. Observations:      86           Method:                  REML     
+No. Groups:            29           Scale:                   0.1629   
+Min. group size:       2            Log-Likelihood:          -77.8650 
+Max. group size:       3            Converged:               Yes      
+Mean group size:       3.0                                            
+----------------------------------------------------------------------
+                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   -1.965    0.370 -5.307 0.000 -2.691 -1.240
+Session[T.E2]                2.024    0.151 13.400 0.000  1.728  2.320
+Session[T.E3]                2.026    0.151 13.413 0.000  1.730  2.322
+Group[T.tRNS]               -0.011    0.274 -0.039 0.969 -0.548  0.527
+Session[T.E2]:Group[T.tRNS] -0.140    0.215 -0.652 0.515 -0.561  0.281
+Session[T.E3]:Group[T.tRNS] -0.300    0.215 -1.399 0.162 -0.721  0.120
+VGexp                        0.235    0.070  3.356 0.001  0.098  0.373
+Group Var                    0.374    0.360                           
+======================================================================
+
+
+Assumption checks - H2a Covariate: SF_zscore ~ Session + Group + Session:Group + VGexp
+  Durbin-Watson: 2.053 (OK)
+  Breusch-Pagan p-value: 0.2254 (OK)
+  Shapiro-Wilk p-value: 0.6793 (OK)
+
+Sandwich-robust marginal confirmation (GEE) - H2a Covariate: SF_zscore ~ Session + Group + Session:Group + VGexp
+  Group p-value: MixedLM=0.9692 | Sandwich=0.9507
+  Min Session×Group p-value: MixedLM=0.1618 | Sandwich=0.2159
+
+--------------------------------------------------------------------------------
+H2b COVARIATE ANALYSIS: MATB Performance with Gaming Experience
+--------------------------------------------------------------------------------
+Model: MATB_z_mean ~ Session + Group + Session:Group + VGexp
+Random effects: Participant
+Valid observations with covariates: 86
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                 MixedLM     Dependent Variable:     MATB_z_mean
+No. Observations:      86          Method:                 REML       
+No. Groups:            29          Scale:                  0.1414     
+Min. group size:       2           Log-Likelihood:         -66.7721   
+Max. group size:       3           Converged:              Yes        
+Mean group size:       3.0                                            
+----------------------------------------------------------------------
+                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   -1.539    0.284 -5.422 0.000 -2.095 -0.982
+Session[T.E2]                1.535    0.141 10.913 0.000  1.259  1.810
+Session[T.E3]                1.575    0.141 11.201 0.000  1.300  1.851
+Group[T.tRNS]                0.175    0.218  0.804 0.421 -0.252  0.603
+Session[T.E2]:Group[T.tRNS]  0.007    0.200  0.034 0.973 -0.385  0.399
+Session[T.E3]:Group[T.tRNS] -0.277    0.200 -1.383 0.167 -0.668  0.115
+VGexp                        0.141    0.053  2.669 0.008  0.037  0.245
+Group Var                    0.196    0.219                           
+======================================================================
+
+
+Assumption checks - H2b Covariate: MATB_z_mean ~ Session + Group + Session:Group + VGexp
+  Durbin-Watson: 2.151 (OK)
+  Breusch-Pagan p-value: 0.0037 (Potential issue)
+  Shapiro-Wilk p-value: 0.0170 (Potential issue)
+  Levene (group residual variance) p-value: 0.3345 (OK)
+  Brown-Forsythe (group residual variance) p-value: 0.3452 (OK)
+  Residual variance ratio max/min: 1.648
+  Group residual variances: Sham:var=0.1210; tRNS:var=0.0734
+
+Sandwich-robust marginal confirmation (GEE) - H2b Covariate: MATB_z_mean ~ Session + Group + Session:Group + VGexp
+  Group p-value: MixedLM=0.4213 | Sandwich=0.4670
+  Min Session×Group p-value: MixedLM=0.1666 | Sandwich=0.2311
+
+================================================================================
+MIXED-EFFECTS MODEL ASSUMPTION CHECKS
+================================================================================
+                                                               Model  N_obs Durbin_Watson DW_interpretation Breusch_Pagan_p BP_interpretation Shapiro_Wilk_p SW_interpretation Levene_Group_p Levene_interpretation Brown_Forsythe_Group_p Brown_Forsythe_interpretation Residual_Variance_Ratio_MaxMin
+               H2a Base: SF_zscore ~ Session + Group + Session:Group     89         2.133                OK          0.2242                OK         0.6248                OK            N/A            Not tested                    N/A                    Not tested                            N/A
+             H2b Base: MATB_z_mean ~ Session + Group + Session:Group     90         2.197                OK          0.0147   Potential issue         0.0041   Potential issue         0.4686                    OK                 0.4689                            OK                          1.691
+  H2a Covariate: SF_zscore ~ Session + Group + Session:Group + VGexp     86         2.053                OK          0.2254                OK         0.6793                OK            N/A            Not tested                    N/A                    Not tested                            N/A
+H2b Covariate: MATB_z_mean ~ Session + Group + Session:Group + VGexp     86         2.151                OK          0.0037   Potential issue         0.0170   Potential issue         0.3345                    OK                 0.3452                            OK                          1.648
+
+Assumption summary table saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\SF_MATB_Trained_Tasks_Analysis_LME_assumptions_2026_09_21.csv
+Covariate model assumption summary saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\SF_MATB_Trained_Tasks_Analysis_covariate_assumptions_2026_09_21.csv
+
+================================================================================
+SANDWICH-ROBUST MARGINAL CONFIRMATION (vs MixedLM)
+================================================================================
+                                                               Model  N_obs                        Estimator MixedLM_Group_p Sandwich_Group_p MixedLM_Min_SessionGroup_p Sandwich_Min_SessionGroup_p Status
+               H2a Base: SF_zscore ~ Session + Group + Session:Group     89 GEE (sandwich robust covariance)          0.8342           0.6990                     0.1895                      0.2425     OK
+             H2b Base: MATB_z_mean ~ Session + Group + Session:Group     90 GEE (sandwich robust covariance)          0.3886           0.4577                     0.1148                      0.1782     OK
+  H2a Covariate: SF_zscore ~ Session + Group + Session:Group + VGexp     86 GEE (sandwich robust covariance)          0.9692           0.9507                     0.1618                      0.2159     OK
+H2b Covariate: MATB_z_mean ~ Session + Group + Session:Group + VGexp     86 GEE (sandwich robust covariance)          0.4213           0.4670                     0.1666                      0.2311     OK
+
+Sandwich confirmation summary table saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\SF_MATB_Trained_Tasks_Analysis_GEE_sensitivity_2026_09_21.csv
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================
+
+All plots saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\plots\Trained_tasks
+
+Generated plots:
+  1. Combined_LearningRates_Stacked.png - MATB + SF learning rates (vertically stacked)
+  2. Combined_Performances_Stacked_MeanCI95.png - MATB + SF performances (mean + points + 95% CI)
+
+Log saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\SF_MATB_Trained_Tasks_Analysis_2026_09_21.txt
+================================================================================
