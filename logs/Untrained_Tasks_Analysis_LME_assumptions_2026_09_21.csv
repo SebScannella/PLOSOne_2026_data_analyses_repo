@@ -1,0 +1,8 @@
+Model,N_obs,Durbin_Watson,DW_interpretation,Breusch_Pagan_p,BP_interpretation,Shapiro_Wilk_p,SW_interpretation
+H1 Base: TLX_raw_mean ~ Session + Group + Session:Group,90,2.0519123851454673,OK,0.8176090091783192,OK,0.2075604765704328,OK
+H1 Covariate: TLX_raw_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol,90,2.1069624385881096,OK,0.5791547499352965,OK,0.1370059787161732,OK
+H2 Base: oddball_percentage_mean ~ Session + Group + Session:Group,89,2.368870039722178,OK,0.15332900879683464,OK,0.7368426463635889,OK
+H2 Covariate: oddball_percentage_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol,89,2.3871738872844555,OK,0.02064698724408274,Potential issue,0.7724319103447784,OK
+H3 Base: simu_zscore_mean ~ Session + Group + Session:Group,89,2.443087464010927,OK,0.30950366559746234,OK,0.7408755695304889,OK
+H3 Covariate: simu_zscore_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol,89,2.446795125573666,OK,0.039914004083209206,Potential issue,0.5363388832432076,OK
+H3 Flight covariate: simu_zscore_mean ~ Session + Group + Session:Group + HeuresVol,89,2.4825225086740628,OK,0.03612183825911227,Potential issue,0.6027659832208282,OK

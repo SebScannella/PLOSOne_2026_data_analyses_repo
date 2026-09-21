@@ -1,0 +1,6 @@
+Group,Metric,Mean_Stabilization_Session_Num,SD_Stabilization_Session_Num,N
+Sham,Stabilize_By_Threshold_Session_Num,7.4,2.1974010622941433,15
+tRNS,Stabilize_By_Threshold_Session_Num,8.2,1.424279266355945,15
+Sham,Stabilize_By_Slope_Session_Num,6.444444444444445,2.4037008503093262,9
+tRNS,Stabilize_By_Slope_Session_Num,7.5,1.2692955176439846,10
+ALL,Overall,7.386111111111111,1.8236691741508495,4

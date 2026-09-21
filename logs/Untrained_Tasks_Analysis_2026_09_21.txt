@@ -1,0 +1,468 @@
+================================================================================
+STATISTICAL ANALYSIS - UNTRAINED TASKS (WORKLOAD ASSESSMENTS)
+================================================================================
+
+Log file: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\Untrained_Tasks_Analysis_2026_09_21.txt
+Analysis date: 2026-09-21 16:25:45
+================================================================================
+
+Loading data files...
+  df_Best_SF_MATB_Mean_Zscores_SIMU: (91, 49)
+  df_demographics_EFs: (30, 36)
+  Columns: ['Participant', 'Session', 'Session_Game_MATB', 'SYSMON', 'TRACK', 'RESMAN', 'session_factor_MATB', 'Group_MATB', 'SYSMON_log', 'TRACK_log', 'RESMAN_log', 'SYSMON_log_inv', 'TRACK_log_inv', 'RESMAN_log_inv', 'SYSMON_z', 'TRACK_z', 'RESMAN_z', 'MATB_z_mean', 'Date', 'Session_Game_SF', 'TotalScore', 'Flight', 'Bonus', 'Mine', 'Fortress', 'NumberofBonus', 'NumberofMine', 'Bonus_Prct', 'Mine_Prct', 'FortressShot', 'session_factor_SF', 'Group_SF', 'SF_zscore', 'Group', 'oddball_percentage_VFR-low', 'oddball_percentage_IFR-high', 'oddball_percentage_IFR-low', 'oddball_percentage_VFR-high', 'TLX_raw_VFR-low', 'TLX_raw_IFR-high', 'TLX_raw_IFR-low', 'TLX_raw_VFR-high', 'simu_zscore_VFR-low', 'simu_zscore_IFR-high', 'simu_zscore_IFR-low', 'simu_zscore_VFR-high', 'oddball_percentage_mean', 'TLX_raw_mean', 'simu_zscore_mean']
+
+Recoding groups (A -> tRNS, B -> Sham)...
+
+Sessions included: ['E1', 'E2', 'E3']
+Total data points: 91
+Unique participants: 31
+
+================================================================================
+WORKLOAD ASSESSMENTS: SUBJECTIVE & OBJECTIVE
+================================================================================
+
+================================================================================
+SUBJECTIVE WORKLOAD: NASA-TLX
+================================================================================
+
+Missing TLX data: 1 / 91
+
+Descriptive Statistics by Group and Session:
+Group Session_Label  N      Mean        SD       Min       Max
+ Sham     Reference 15 63.055556  8.162561 50.625000 77.291667
+ Sham    Short-term 15 47.694444 14.229872 12.916667 65.208333
+ Sham     Long-term 15 46.055556 14.353302 21.250000 71.041667
+ tRNS     Reference 15 63.083333 11.995835 40.833333 86.250000
+ tRNS    Short-term 15 50.513889 13.964521 20.000000 68.125000
+ tRNS     Long-term 15 41.944444 13.694800 24.791667 65.625000
+
+--------------------------------------------------------------------------------
+Mixed Model for Subjective Workload (NASA-TLX)
+--------------------------------------------------------------------------------
+Model: TLX_raw_mean ~ Session + Group + Session:Group
+Random effects: Participant
+Valid observations for model: 90
+                  Mixed Linear Model Regression Results
+=========================================================================
+Model:                 MixedLM      Dependent Variable:      TLX_raw_mean
+No. Observations:      90           Method:                  REML        
+No. Groups:            30           Scale:                   72.6095     
+Min. group size:       3            Log-Likelihood:          -329.5300   
+Max. group size:       3            Converged:               Yes         
+Mean group size:       3.0                                               
+-------------------------------------------------------------------------
+                             Coef.  Std.Err.   z    P>|z|  [0.025  0.975]
+-------------------------------------------------------------------------
+Intercept                    63.056    3.336 18.902 0.000  56.517  69.594
+Session[T.E2]               -15.361    3.111 -4.937 0.000 -21.459  -9.263
+Session[T.E3]               -17.000    3.111 -5.464 0.000 -23.098 -10.902
+Group[T.tRNS]                 0.028    4.718  0.006 0.995  -9.219   9.274
+Session[T.E2]:Group[T.tRNS]   2.792    4.400  0.634 0.526  -5.833  11.416
+Session[T.E3]:Group[T.tRNS]  -4.139    4.400 -0.941 0.347 -12.763   4.486
+Group Var                    94.322    4.553                             
+=========================================================================
+
+
+Assumption checks - H1 Base: TLX_raw_mean ~ Session + Group + Session:Group
+  Durbin-Watson: 2.052 (OK)
+  Breusch-Pagan p-value: 0.8176 (OK)
+  Shapiro-Wilk p-value: 0.2076 (OK)
+  Residual diagnostics figure skipped: residuals_TLX_base.png
+
+GEE sensitivity - H1 Base: TLX_raw_mean ~ Session + Group + Session:Group
+  Group p-value: MixedLM=0.9953 | GEE=0.9939
+  Min Session×Group p-value: MixedLM=0.3469 | GEE=0.3739
+
+--------------------------------------------------------------------------------
+TLX: Group Comparisons within Each Session
+--------------------------------------------------------------------------------
+E1: tRNS (n=15, m=63.083) vs Sham (n=15, m=63.056), t=0.007, p=0.994
+E2: tRNS (n=15, m=50.514) vs Sham (n=15, m=47.694), t=0.548, p=0.588
+E3: tRNS (n=15, m=41.944) vs Sham (n=15, m=46.056), t=-0.803, p=0.429
+
+--------------------------------------------------------------------------------
+COVARIATE ANALYSIS: TLX with Gaming & Flight Experience
+--------------------------------------------------------------------------------
+Model: TLX_raw_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+Random effects: Participant
+Valid observations with covariates: 90
+                  Mixed Linear Model Regression Results
+=========================================================================
+Model:                 MixedLM      Dependent Variable:      TLX_raw_mean
+No. Observations:      90           Method:                  REML        
+No. Groups:            30           Scale:                   72.6095     
+Min. group size:       3            Log-Likelihood:          -326.4002   
+Max. group size:       3            Converged:               Yes         
+Mean group size:       3.0                                               
+-------------------------------------------------------------------------
+                             Coef.  Std.Err.   z    P>|z|  [0.025  0.975]
+-------------------------------------------------------------------------
+Intercept                    71.453    4.536 15.751 0.000  62.561  80.344
+Session[T.E2]               -15.361    3.111 -4.937 0.000 -21.459  -9.263
+Session[T.E3]               -17.000    3.111 -5.464 0.000 -23.098 -10.902
+Group[T.tRNS]                 0.498    4.467  0.111 0.911  -8.258   9.254
+JeuxIntensif[T.Oui]          -6.085    3.825 -1.591 0.112 -13.582   1.412
+Session[T.E2]:Group[T.tRNS]   2.792    4.400  0.634 0.526  -5.833  11.416
+Session[T.E3]:Group[T.tRNS]  -4.139    4.400 -0.941 0.347 -12.763   4.486
+HeuresVol                    -0.080    0.036 -2.222 0.026  -0.151  -0.009
+Group Var                    76.565    3.969                             
+=========================================================================
+
+
+Assumption checks - H1 Covariate: TLX_raw_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+  Durbin-Watson: 2.107 (OK)
+  Breusch-Pagan p-value: 0.5792 (OK)
+  Shapiro-Wilk p-value: 0.1370 (OK)
+
+GEE sensitivity - H1 Covariate: TLX_raw_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+  Group p-value: MixedLM=0.9113 | GEE=0.8738
+  Min Session×Group p-value: MixedLM=0.3469 | GEE=0.3739
+
+================================================================================
+OBJECTIVE WORKLOAD: ODDBALL MISSED TARGETS
+================================================================================
+
+Missing Oddball missed targets data: 2 / 91
+
+Descriptive Statistics by Group and Session:
+Group Session_Label  N      Mean        SD      Min       Max
+ Sham     Reference 14 17.275564 11.666173 0.347222 41.386626
+ Sham    Short-term 15 17.451463 12.719920 0.000000 45.914831
+ Sham     Long-term 15 13.004699 10.729148 0.621142 34.628205
+ tRNS     Reference 15 28.170071 16.572706 4.197161 54.593954
+ tRNS    Short-term 15 23.191645 17.746245 2.941584 61.963123
+ tRNS     Long-term 15 18.353322 16.132242 1.124031 56.950849
+
+--------------------------------------------------------------------------------
+Mixed Model for Objective Workload (Oddball Missed Targets)
+--------------------------------------------------------------------------------
+Model: oddball_percentage_mean ~ Session + Group + Session:Group
+Random effects: Participant
+Valid observations for model: 89
+                 Mixed Linear Model Regression Results
+========================================================================
+Model:             MixedLM  Dependent Variable:  oddball_percentage_mean
+No. Observations:  89       Method:              REML                   
+No. Groups:        30       Scale:               33.7428                
+Min. group size:   2        Log-Likelihood:      -311.1569              
+Max. group size:   3        Converged:           Yes                    
+Mean group size:   3.0                                                  
+------------------------------------------------------------------------
+                             Coef.  Std.Err.   z    P>|z|  [0.025 0.975]
+------------------------------------------------------------------------
+Intercept                    18.027    3.780  4.769 0.000  10.618 25.437
+Session[T.E2]                -0.576    2.176 -0.265 0.791  -4.840  3.688
+Session[T.E3]                -5.023    2.176 -2.309 0.021  -9.287 -0.758
+Group[T.tRNS]                10.143    5.324  1.905 0.057  -0.293 20.578
+Session[T.E2]:Group[T.tRNS]  -4.402    3.039 -1.449 0.147 -10.358  1.553
+Session[T.E3]:Group[T.tRNS]  -4.794    3.039 -1.578 0.115 -10.749  1.161
+Group Var                   177.109   10.652                            
+========================================================================
+
+
+Assumption checks - H2 Base: oddball_percentage_mean ~ Session + Group + Session:Group
+  Durbin-Watson: 2.369 (OK)
+  Breusch-Pagan p-value: 0.1533 (OK)
+  Shapiro-Wilk p-value: 0.7368 (OK)
+  Residual diagnostics figure skipped: residuals_Oddball_base.png
+
+GEE sensitivity - H2 Base: oddball_percentage_mean ~ Session + Group + Session:Group
+  Group p-value: MixedLM=0.0568 | GEE=0.0460
+  Min Session×Group p-value: MixedLM=0.1146 | GEE=0.1444
+
+--------------------------------------------------------------------------------
+Oddball: Group Comparisons within Each Session
+--------------------------------------------------------------------------------
+E1: tRNS (n=15, m=28.170) vs Sham (n=14, m=17.276), t=2.033, p=0.052
+E2: tRNS (n=15, m=23.192) vs Sham (n=15, m=17.451), t=1.018, p=0.317
+E3: tRNS (n=15, m=18.353) vs Sham (n=15, m=13.005), t=1.069, p=0.294
+
+--------------------------------------------------------------------------------
+COVARIATE ANALYSIS: Oddball Missed Targets with Gaming & Flight Experience
+--------------------------------------------------------------------------------
+Model: oddball_percentage_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+Random effects: Participant
+Valid observations with covariates: 89
+                 Mixed Linear Model Regression Results
+========================================================================
+Model:             MixedLM  Dependent Variable:  oddball_percentage_mean
+No. Observations:  89       Method:              REML                   
+No. Groups:        30       Scale:               33.7426                
+Min. group size:   2        Log-Likelihood:      -309.1851              
+Max. group size:   3        Converged:           Yes                    
+Mean group size:   3.0                                                  
+------------------------------------------------------------------------
+                             Coef.  Std.Err.   z    P>|z|  [0.025 0.975]
+------------------------------------------------------------------------
+Intercept                    24.849    5.739  4.330 0.000  13.602 36.097
+Session[T.E2]                -0.576    2.176 -0.265 0.791  -4.840  3.688
+Session[T.E3]                -5.023    2.176 -2.309 0.021  -9.287 -0.759
+Group[T.tRNS]                10.433    5.249  1.988 0.047   0.145 20.720
+JeuxIntensif[T.Oui]          -3.379    5.134 -0.658 0.510 -13.441  6.684
+Session[T.E2]:Group[T.tRNS]  -4.402    3.039 -1.449 0.147 -10.358  1.553
+Session[T.E3]:Group[T.tRNS]  -4.794    3.039 -1.578 0.115 -10.749  1.162
+HeuresVol                    -0.081    0.049 -1.673 0.094  -0.176  0.014
+Group Var                   170.161   10.518                            
+========================================================================
+
+
+Assumption checks - H2 Covariate: oddball_percentage_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+  Durbin-Watson: 2.387 (OK)
+  Breusch-Pagan p-value: 0.0206 (Potential issue)
+  Shapiro-Wilk p-value: 0.7724 (OK)
+
+GEE sensitivity - H2 Covariate: oddball_percentage_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+  Group p-value: MixedLM=0.0469 | GEE=0.0210
+  Min Session×Group p-value: MixedLM=0.1146 | GEE=0.1438
+
+================================================================================
+SIMULATOR PERFORMANCE
+================================================================================
+
+Missing Simulator data: 2 / 91
+
+Descriptive Statistics by Group and Session:
+Group Session_Label  N      Mean       SD       Min      Max
+ Sham     Reference 14 -0.186382 0.272174 -0.699071 0.280795
+ Sham    Short-term 15  0.036460 0.358717 -0.499616 0.616351
+ Sham     Long-term 15  0.138521 0.220817 -0.354676 0.572374
+ tRNS     Reference 15 -0.239093 0.536474 -1.428578 0.604403
+ tRNS    Short-term 15  0.006476 0.501479 -1.073717 0.701031
+ tRNS     Long-term 15  0.165143 0.534335 -0.803004 1.144252
+
+--------------------------------------------------------------------------------
+Mixed Model for Simulator Performance
+--------------------------------------------------------------------------------
+Model: simu_zscore_mean ~ Session + Group + Session:Group
+Random effects: Participant
+Valid observations for model: 89
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                MixedLM   Dependent Variable:   simu_zscore_mean
+No. Observations:     89        Method:               REML            
+No. Groups:           30        Scale:                0.0621          
+Min. group size:      2         Log-Likelihood:       -36.9428        
+Max. group size:      3         Converged:            Yes             
+Mean group size:      3.0                                             
+----------------------------------------------------------------------
+                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   -0.185    0.111 -1.661 0.097 -0.403  0.033
+Session[T.E2]                0.221    0.093  2.373 0.018  0.039  0.404
+Session[T.E3]                0.323    0.093  3.468 0.001  0.141  0.506
+Group[T.tRNS]               -0.054    0.156 -0.348 0.728 -0.360  0.252
+Session[T.E2]:Group[T.tRNS]  0.024    0.130  0.187 0.852 -0.231  0.280
+Session[T.E3]:Group[T.tRNS]  0.081    0.130  0.621 0.535 -0.174  0.336
+Group Var                    0.117    0.182                           
+======================================================================
+
+
+Assumption checks - H3 Base: simu_zscore_mean ~ Session + Group + Session:Group
+  Durbin-Watson: 2.443 (OK)
+  Breusch-Pagan p-value: 0.3095 (OK)
+  Shapiro-Wilk p-value: 0.7409 (OK)
+
+GEE sensitivity - H3 Base: simu_zscore_mean ~ Session + Group + Session:Group
+  Group p-value: MixedLM=0.7279 | GEE=0.7178
+  Min Session×Group p-value: MixedLM=0.5346 | GEE=0.5264
+
+--------------------------------------------------------------------------------
+Simulator: Group Comparisons within Each Session
+--------------------------------------------------------------------------------
+E1: tRNS (n=15, m=-0.239) vs Sham (n=14, m=-0.186), t=-0.330, p=0.744
+E2: tRNS (n=15, m=0.006) vs Sham (n=15, m=0.036), t=-0.188, p=0.852
+E3: tRNS (n=15, m=0.165) vs Sham (n=15, m=0.139), t=0.178, p=0.860
+
+--------------------------------------------------------------------------------
+COVARIATE ANALYSIS: Simulator with Gaming & Flight Experience
+--------------------------------------------------------------------------------
+Model: simu_zscore_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+Random effects: Participant
+Valid observations with covariates: 89
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                MixedLM   Dependent Variable:   simu_zscore_mean
+No. Observations:     89        Method:               REML            
+No. Groups:           30        Scale:                0.0621          
+Min. group size:      2         Log-Likelihood:       -38.5457        
+Max. group size:      3         Converged:            Yes             
+Mean group size:      3.0                                             
+----------------------------------------------------------------------
+                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   -0.545    0.143 -3.816 0.000 -0.825 -0.265
+Session[T.E2]                0.221    0.093  2.367 0.018  0.038  0.403
+Session[T.E3]                0.323    0.093  3.462 0.001  0.140  0.505
+Group[T.tRNS]               -0.077    0.139 -0.550 0.582 -0.350  0.196
+JeuxIntensif[T.Oui]          0.286    0.121  2.361 0.018  0.049  0.523
+Session[T.E2]:Group[T.tRNS]  0.025    0.130  0.192 0.848 -0.230  0.280
+Session[T.E3]:Group[T.tRNS]  0.082    0.130  0.627 0.531 -0.174  0.337
+HeuresVol                    0.003    0.001  2.809 0.005  0.001  0.005
+Group Var                    0.080    0.136                           
+======================================================================
+
+
+Assumption checks - H3 Covariate: simu_zscore_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+  Durbin-Watson: 2.447 (OK)
+  Breusch-Pagan p-value: 0.0399 (Potential issue)
+  Shapiro-Wilk p-value: 0.5363 (OK)
+
+GEE sensitivity - H3 Covariate: simu_zscore_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol
+  Group p-value: MixedLM=0.5823 | GEE=0.5663
+  Min Session×Group p-value: MixedLM=0.5307 | GEE=0.5228
+
+--------------------------------------------------------------------------------
+COVARIATE ANALYSIS: Simulator with Flight Experience
+--------------------------------------------------------------------------------
+Model: simu_zscore_mean ~ Session + Group + Session:Group + HeuresVol
+Random effects: Participant
+Valid observations with covariates: 89
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                MixedLM   Dependent Variable:   simu_zscore_mean
+No. Observations:     89        Method:               REML            
+No. Groups:           30        Scale:                0.0621          
+Min. group size:      2         Log-Likelihood:       -39.9656        
+Max. group size:      3         Converged:            Yes             
+Mean group size:      3.0                                             
+----------------------------------------------------------------------
+                            Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   -0.363    0.128 -2.835 0.005 -0.613 -0.112
+Session[T.E2]                0.222    0.093  2.387 0.017  0.040  0.405
+Session[T.E3]                0.325    0.093  3.482 0.000  0.142  0.507
+Group[T.tRNS]               -0.055    0.147 -0.377 0.706 -0.344  0.233
+Session[T.E2]:Group[T.tRNS]  0.023    0.130  0.177 0.859 -0.232  0.278
+Session[T.E3]:Group[T.tRNS]  0.080    0.130  0.612 0.541 -0.176  0.335
+HeuresVol                    0.003    0.001  2.429 0.015  0.001  0.005
+Group Var                    0.097    0.157                           
+======================================================================
+
+
+Assumption checks - H3 Flight covariate: simu_zscore_mean ~ Session + Group + Session:Group + HeuresVol
+  Durbin-Watson: 2.483 (OK)
+  Breusch-Pagan p-value: 0.0361 (Potential issue)
+  Shapiro-Wilk p-value: 0.6028 (OK)
+
+GEE sensitivity - H3 Flight covariate: simu_zscore_mean ~ Session + Group + Session:Group + HeuresVol
+  Group p-value: MixedLM=0.7058 | GEE=0.7103
+  Min Session×Group p-value: MixedLM=0.5406 | GEE=0.5331
+Creating stacked workload and performance plot (Mean + Points + 95% CI)...
+  Stacked workload and simulator Mean+Points+95%CI plot saved
+
+================================================================================
+EXPLORATORY: Gaming & Flight Experience Correlations (Baseline E1)
+================================================================================
+
+Participants with baseline workload/performance and experience data: 31
+
+Gaming experience (VGexp) correlations:
+VGexp vs simulator performance (baseline): r=0.2307, p=0.2376, n=28
+VGexp vs NASA-TLX (baseline): r=-0.1315, p=0.4966, n=29
+VGexp vs Oddball score (baseline): r=-0.1993, p=0.3093, n=28
+
+Flight hours (HeuresVol) correlations:
+Flight hours vs simulator performance (baseline): r=0.2229, p=0.2451, n=29
+Flight hours vs NASA-TLX (baseline): r=-0.3652, p=0.0472, n=30
+Flight hours vs Oddball score (baseline): r=-0.3170, p=0.0939, n=29
+
+================================================================================
+EXPLORATORY: Gaming & Flight Experience Correlations (Retention E2-E3)
+================================================================================
+
+Participants with retention workload/performance and experience data: 30
+
+Gaming experience (VGexp) correlations:
+VGexp vs simulator performance: r=0.3362, p=0.0746, n=29
+VGexp vs NASA-TLX: r=-0.0274, p=0.8878, n=29
+VGexp vs Oddball score: r=-0.1820, p=0.3448, n=29
+
+Flight hours (HeuresVol) correlations:
+Flight hours vs simulator performance: r=0.4977, p=0.0051, n=30
+Flight hours vs NASA-TLX: r=-0.3083, p=0.0974, n=30
+Flight hours vs Oddball score: r=-0.2563, p=0.1716, n=30
+
+================================================================================
+SUMMARY TABLE: ALL EXPLORATORY CORRELATIONS
+================================================================================
+
+================================================================================================================================================================
+              Analysis                           Subset    Predictor                          Outcome       r      p  N Significant
+Experience correlation simulator performance (baseline)        VGexp simulator performance (baseline)  0.2307 0.2376 28          NO
+Experience correlation              NASA-TLX (baseline)        VGexp              NASA-TLX (baseline) -0.1315 0.4966 29          NO
+Experience correlation         Oddball score (baseline)        VGexp         Oddball score (baseline) -0.1993 0.3093 28          NO
+Experience correlation simulator performance (baseline) Flight hours simulator performance (baseline)  0.2229 0.2451 29          NO
+Experience correlation              NASA-TLX (baseline) Flight hours              NASA-TLX (baseline) -0.3652 0.0472 30         YES
+Experience correlation         Oddball score (baseline) Flight hours         Oddball score (baseline) -0.3170 0.0939 29          NO
+Experience correlation            simulator performance        VGexp            simulator performance  0.3362 0.0746 29          NO
+Experience correlation                         NASA-TLX        VGexp                         NASA-TLX -0.0274 0.8878 29          NO
+Experience correlation                    Oddball score        VGexp                    Oddball score -0.1820 0.3448 29          NO
+Experience correlation            simulator performance Flight hours            simulator performance  0.4977 0.0051 30         YES
+Experience correlation                         NASA-TLX Flight hours                         NASA-TLX -0.3083 0.0974 30          NO
+Experience correlation                    Oddball score Flight hours                    Oddball score -0.2563 0.1716 30          NO
+================================================================================================================================================================
+
+================================================================================
+SUMMARY TABLE: ALL STATISTICAL RESULTS BY HYPOTHESIS
+================================================================================
+
+================================================================================================================================================================
+Hypothesis                       Measure             Context     Model  N Main Group (p) Session×Group (p)
+        H1               NASA-TLX (Mean) Subjective Workload      Base 90         0.9953            0.5258
+        H1               NASA-TLX (Mean) Subjective Workload Covariate 90         0.9113            0.5258
+        H2 Oddball Missed Targets (Mean)  Objective Workload      Base 89         0.0568            0.1474
+        H2 Oddball Missed Targets (Mean)  Objective Workload Covariate 89        0.0469*            0.1474
+        H3  Simulator Performance (Mean)    Flight Simulator      Base 89         0.7279            0.8520
+        H3  Simulator Performance (Mean)    Flight Simulator Covariate 89         0.5823            0.8475
+================================================================================================================================================================
+
+Hypothesis Definitions:
+  H1: Differential improvement in Subjective Workload (NASA-TLX) between groups across sessions
+  H2: Differential improvement in Objective Workload (Oddball Missed Targets) between groups across sessions
+  H3: Differential improvement in Flight Simulator Performance between groups across sessions
+
+Note: Primary test = Session×Group interaction (shown in 'Session×Group (p)' column)
+Significance markers: * = p < 0.05
+Models: Base (Session + Group + Session:Group) vs Covariate (+ JeuxIntensif + HeuresVol)
+Random effects: Participant
+
+================================================================================
+MIXED-EFFECTS MODEL ASSUMPTION CHECKS
+================================================================================
+                                                                                             Model  N_obs Durbin_Watson DW_interpretation Breusch_Pagan_p BP_interpretation Shapiro_Wilk_p SW_interpretation
+                                           H1 Base: TLX_raw_mean ~ Session + Group + Session:Group     90         2.052                OK          0.8176                OK         0.2076                OK
+           H1 Covariate: TLX_raw_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol     90         2.107                OK          0.5792                OK         0.1370                OK
+                                H2 Base: oddball_percentage_mean ~ Session + Group + Session:Group     89         2.369                OK          0.1533                OK         0.7368                OK
+H2 Covariate: oddball_percentage_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol     89         2.387                OK          0.0206   Potential issue         0.7724                OK
+                                       H3 Base: simu_zscore_mean ~ Session + Group + Session:Group     89         2.443                OK          0.3095                OK         0.7409                OK
+       H3 Covariate: simu_zscore_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol     89         2.447                OK          0.0399   Potential issue         0.5363                OK
+               H3 Flight covariate: simu_zscore_mean ~ Session + Group + Session:Group + HeuresVol     89         2.483                OK          0.0361   Potential issue         0.6028                OK
+
+Assumption summary table saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\Untrained_Tasks_Analysis_LME_assumptions_2026_09_21.csv
+Covariate model assumption summary saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\Untrained_Tasks_Analysis_covariate_assumptions_2026_09_21.csv
+
+================================================================================
+GEE ROBUST SENSITIVITY CHECKS (vs MixedLM)
+================================================================================
+                                                                                             Model  N_obs MixedLM_Group_p GEE_Group_p MixedLM_Min_SessionGroup_p GEE_Min_SessionGroup_p Status
+                                           H1 Base: TLX_raw_mean ~ Session + Group + Session:Group     90          0.9953      0.9939                     0.3469                 0.3739     OK
+           H1 Covariate: TLX_raw_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol     90          0.9113      0.8738                     0.3469                 0.3739     OK
+                                H2 Base: oddball_percentage_mean ~ Session + Group + Session:Group     89          0.0568      0.0460                     0.1146                 0.1444     OK
+H2 Covariate: oddball_percentage_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol     89          0.0469      0.0210                     0.1146                 0.1438     OK
+                                       H3 Base: simu_zscore_mean ~ Session + Group + Session:Group     89          0.7279      0.7178                     0.5346                 0.5264     OK
+       H3 Covariate: simu_zscore_mean ~ Session + Group + Session:Group + JeuxIntensif + HeuresVol     89          0.5823      0.5663                     0.5307                 0.5228     OK
+               H3 Flight covariate: simu_zscore_mean ~ Session + Group + Session:Group + HeuresVol     89          0.7058      0.7103                     0.5406                 0.5331     OK
+
+GEE sensitivity summary table saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\Untrained_Tasks_Analysis_GEE_sensitivity_2026_09_21.csv
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================
+
+All plots saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\plots\Untrained_tasks
+
+Generated plots:
+  1. Workload_Simulator_Stacked_MeanCI95.png - stacked workload/simulator (mean + points + 95% CI)
+
+Log saved to: d:\Data\Work\PainBrain\PlosOne_2026_data\SRC\..\logs\Untrained_Tasks_Analysis_2026_09_21.txt
+================================================================================
